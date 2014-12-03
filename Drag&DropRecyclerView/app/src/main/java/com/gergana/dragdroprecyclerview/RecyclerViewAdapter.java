@@ -92,8 +92,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public long getItemId(int position) {
-        long h = (mDataset.get(position-1)).getName().hashCode();
-        return h;
+     
+        if(position>0) {
+            long h = (mDataset.get(position -1)).getName().hashCode();
+            return h;
+        }else{
+            return -1;
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
